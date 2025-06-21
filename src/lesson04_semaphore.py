@@ -4,6 +4,10 @@ from time import sleep
 from random import random
 from multiprocessing import Process
 from multiprocessing import Semaphore
+from logging import getLogger, basicConfig, INFO
+
+basicConfig(level=INFO, format='%(asctime)s - %(levelname)s - %(message)s')
+logger = getLogger(__name__)
 
 # custom function to be executed in a child process
 def task(shared_semaphore, ident):
@@ -12,9 +16,9 @@ def task(shared_semaphore, ident):
         # generate a random value between 0 and 1
         val = random()
         # block for a fraction of a second
-        sleep(val)
+        sleep(1)
         # report result
-        print(f'Process {ident} got {val}', flush=True)
+        logger.info(f'Process {ident} got {val}')
 
 # protect the entry point
 if __name__ == '__main__':

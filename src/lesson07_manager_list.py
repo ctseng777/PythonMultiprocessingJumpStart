@@ -31,3 +31,5 @@ if __name__ == '__main__':
             process.join()
         # report the number of items stored
         print(f'List: {len(managed_list)}')
+        print(f"List: {managed_list}")
+

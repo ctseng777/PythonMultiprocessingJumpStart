@@ -2,11 +2,13 @@
 # example of getting a list of active child processes
 from time import sleep
 from multiprocessing import active_children
-from multiprocessing import Process
+from multiprocessing import Process, current_process
 
 # custom function to be executed in a child process
 def task():
     # block for a moment
+    #process = current_process()
+    #print(process)
     sleep(1)
 
 # protect the entry point
